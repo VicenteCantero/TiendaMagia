@@ -1,0 +1,14 @@
+<h1>¿Está seguro?</h1>
+<hr>
+
+<p>
+    Está a punto de borrar {{data.nombre}}
+    <br>
+    ¿Desea continuar?
+</p>
+
+<div>
+    <button mat-raised-button  (click)=borrar() color="warn">Si. Borrar</button>
+    <span class="spacer"></span>
+    <button mat-raised-button (click)=cerrar()>Cancelar</button>
+</div>

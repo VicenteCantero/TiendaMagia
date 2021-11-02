@@ -1,0 +1,41 @@
+<div fxLayout="column">
+    <div>
+        <h1>¿Qué producto buscas?</h1>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div fxLayout="column">
+        <h3>Buscador</h3>
+
+        <mat-form-field>
+            <mat-label>Introduce nombre del producto</mat-label>
+            <input type="text"
+                   placeholder="Selecciona uno"
+                   aria-label="Number"
+                   matInput
+                   [(ngModel)]="termino"
+                   [matAutocomplete]="auto"
+                   (input)=buscando()>
+            <mat-autocomplete autoActiveFirstOption 
+                              #auto="matAutocomplete"
+                              (optionSelected)="opcionSeleccionada($event)">
+              <mat-option *ngFor="let producto of productos" [value]="producto">
+                {{producto.nombre}}
+              </mat-option>
+
+              <mat-option value="" *ngIf="productos.length === 0 && termino.length > 0">
+                No se encontró nada con {{termino}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+    </div>
+
+
+    <div>
+      <pre>
+        {{productoSelecionado | json}}
+      </pre>
+      
+    </div>
+
+</div>

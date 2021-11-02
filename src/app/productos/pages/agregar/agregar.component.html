@@ -1,0 +1,88 @@
+<h1>
+   {{(producto.id) ? 'Editar' : 'Nuevo'}}
+    Producto 
+    <small>{{producto.nombre}}</small>
+</h1>
+
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
+
+    <div fxFlex="50" fxLayout="column">
+
+ 
+        <mat-form-field fxFlex="100" fxLayout.xs="column">
+            <mat-label>Nombre</mat-label>
+            <input matInput type="text" [(ngModel)]="producto.nombre" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Creador</mat-label>
+            <input matInput type="text" [(ngModel)]="producto.creador" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Tipo</mat-label>
+            <mat-select [(ngModel)]="producto.tipo" required>
+                <mat-option *ngFor="let tipo of tipos" [value]="tipo">
+                    {{tipo}}
+                </mat-option>
+
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Precio</mat-label>
+            <input matInput type="text" [(ngModel)]="producto.precio" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Cantidad</mat-label>
+            <input matInput type="text" [(ngModel)]="producto.cantidad" required>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="100">
+            <mat-label>Descripción</mat-label>
+            <input matInput type="text" [(ngModel)]="producto.descripcion" required>
+        </mat-form-field>
+
+        <mat-form-field class="col-sm-12 col-xs-12">
+            <mat-label>Imagen</mat-label>
+            <input matInput type="text" disabled>
+            <input #file type="file" style="display: none;" (change)="fileChangeEvent($event)">
+            <div>
+                {{selected_image}}
+            </div>
+            <button mat-mini-fab color="primary" matSuffix type="button" (click)="file.click()">
+                <mat-icon>attach_file</mat-icon>
+            </button>
+        </mat-form-field>
+        <!-- <mat-form-field fxFlex= "100">
+        <mat-label>Imagen Url</mat-label>
+        <input matInput
+                type= "url"
+                [(ngModel)]= "producto.alt_img"
+                required>
+    </mat-form-field> -->
+
+        <br>
+        <div fxLayout>
+            <button mat-raised-button color="primary" (click)="guardar()">
+                <mat-icon>{{(producto.id) ? 'edit' : 'save'}}</mat-icon>
+                {{(producto.id) ? 'Actualizar' : 'Crear'}}
+
+            </button>
+
+            <span class="spacer"></span>
+
+            <button *ngIf="producto.id" mat-raised-button color="warn" (click)="borrarProducto()">
+                <mat-icon>remove</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+    </div>
+
+    <div fxFlex="50">
+        <img [src]="imagenAMostrar">
+    </div>
+
+</div>

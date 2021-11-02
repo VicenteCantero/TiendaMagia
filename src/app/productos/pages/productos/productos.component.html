@@ -1,0 +1,42 @@
+
+<mat-grid-list cols= "1" *ngIf="!producto; else divProducto">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<ng-template #divProducto>
+    
+    <div fxLayout="row"
+        fxLayout.xs = "column"
+        fxLayoutGap = "30px">
+
+        <div fxFlex=50>
+            <h1>{{producto.nombre | uppercase}}<small>- Magia de {{producto.tipo}}</small></h1>
+            <mat-divider></mat-divider>
+            <br>
+            <img [src]= "producto | imagen">
+        </div>
+
+        <div fxFlex=50>
+                <h1>{{producto.nombre}}</h1>
+                <mat-divider></mat-divider>
+                <br>
+                <mat-list>
+                    <mat-list-item><strong> Creador</strong>:  {{producto.creador}}</mat-list-item>
+                    <mat-list-item><strong> Tipo de Magia</strong>:  {{producto.tipo}}</mat-list-item>
+                    <mat-list-item><strong> Cantidad</strong>:  {{producto.cantidad}}</mat-list-item>
+                    <mat-list-item><strong> Precio</strong>:  {{producto.precio}}</mat-list-item>
+                    <mat-list-item><strong> Descripción</strong>:  {{producto.descripcion}}</mat-list-item>
+                </mat-list>  
+
+                <br>
+                <button mat-raised-button 
+                        color="primary"
+                        (click)="volver()">
+                    Volver
+                </button>
+        </div>
+    </div>
+</ng-template>
