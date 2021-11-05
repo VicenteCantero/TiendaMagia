@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Producto } from '../../interface/producto.interfaces';
 import { ProductosService } from '../../services/productos.service';
@@ -17,14 +18,17 @@ export class BuscarComponent implements OnInit {
 
   productoSelecionado!: Producto;
 
-  constructor(private productosService : ProductosService) { }
+
+
+  constructor(private productosService : ProductosService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
     buscando() {
 
-      this.productosService.getSugerencias(this.termino)
+      this.productosService.getProductos()
       .subscribe( productos => this.productos = productos);
     }
   
@@ -34,6 +38,8 @@ export class BuscarComponent implements OnInit {
 
       this.productosService.getProductosPorId(producto.id)
       .subscribe( producto => this.productoSelecionado = producto);
+
+
     }
 
    

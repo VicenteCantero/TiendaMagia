@@ -27,7 +27,7 @@ export class ProductosService {
 
   getSugerencias (termino: string): Observable<Producto[]>{
 
-    return this.http.get<Producto[]>(`${environment.apiUrl}${this.endPoint}?q=${termino}&_limit=6`)
+    return this.http.get<Producto[]>(`${environment.apiUrl}${this.endPoint}{"nombre": {"$regex": ${termino}}}`)
 
   }
 
