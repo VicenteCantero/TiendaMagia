@@ -46,7 +46,7 @@ export class AuthService {
   //     );
   // }
 
-  logout() {
+  logOut() {
     this._auth = undefined;
     localStorage.removeItem('token');
   }
@@ -79,11 +79,41 @@ export class AuthService {
         tap(resp => {
           if (resp.token) {
             localStorage.setItem('token', resp.token!)
-            // this._auth = this.auth
+            this._auth = {
+              nombre: resp.username!,
+              id: resp.id!,
+              email: '',
+              password: '',
+
+            }
+          }
+          if (resp.username){
+            localStorage.setItem('nombre', resp.username)
+          }
+          if (resp.id){
+            localStorage.setItem('id', resp.id)
           }
         }),
         map(res => res.token),
-        catchError(err => of(false))
+        catchError(err => of(err.error.msg ))
       );
   }
-}
+
+
+  // validarToken(){
+  //   const url = `${environment.apiUrl}/${this.endPoint}/login`;
+  //   const body = { nombre };
+
+  //   return this.http.get<AuthResponse>(url, body);
+//   .pipe(
+//     tap(resp => {
+//       if (resp.token) {
+//         localStorage.getItem('token', resp.token!)
+//         // this._auth = this.auth
+//       }
+//     }),
+//     map(res => res.token),
+//     catchError(err => of(err.error.msg ))
+//   );
+//   // }
+ }

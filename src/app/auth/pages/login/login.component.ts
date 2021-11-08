@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import  Swal from 'sweetalert2';
 import { AuthResponse } from '../../interfaces/authResponse.interfaces';
 
 
@@ -31,7 +32,7 @@ export class LoginComponent {
         if (token) {
           this.router.navigate(['./productos']);
         } else {
-          //TODO: error
+          Swal.fire('Error',token, 'error');
         }
       });
 
