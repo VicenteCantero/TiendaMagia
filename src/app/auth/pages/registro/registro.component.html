@@ -1,38 +1,38 @@
 <div fxLayout="row">
 
-    <mat-card width=30>
+    <mat-card >
 
-        <mat-card-content>
+        <mat-card-content class="center-content">
 
-            <form class="registro-form align-items-center" [formGroup]="miFormulario" (ngSubmit)="registro()">
-                <mat-card-title>Nuevo Usuario</mat-card-title>
+            <form class="registro-form" [formGroup]="miFormulario" (ngSubmit)="registro()">
+                <mat-card-title class="center-content">Nuevo Usuario</mat-card-title>
 
-                <img src="assets/imgMagia/vintcen.jpg" alt="Logo" title="Logo" width="300">
+                <img src="assets/imgMagia/vintcen.jpg" alt="Logo" title="Logo" width="100%">
 
                 <br>
-                <div class="wrap-input100 m-b-23">
-                    <span class="label-input100">Nombre: </span>
-                    <input class="input100" type="nombre" formControlName="nombre" placeholder="Ingrese su nombre">
-                    <span class="focus-input100"></span>
+                <div class="center-content">
+                    <span>Nombre: </span>
+                    <input class="input100" type="nombre" formControlName="nombre" placeholder="  Ingrese su nombre">
+                
                 </div>
                 <br>
-                <div class="wrap-input100 m-b-23">
-                    <span class="label-input100">Email: </span>
-                    <input class="input100" type="email" formControlName="email" placeholder="Ingrese su email">
-                    <span class="focus-input100"></span>
+                <div class="center-content">
+                    <span>Email: </span>
+                    <input class="input100" type="email" formControlName="email" placeholder="      Ingrese su email">
+                    
                 </div>
                 <br>
-                <div class="wrap-input100">
-                    <span class="label-input100">Password: </span>
+                <div class="center-content">
+                    <span>Password: </span>
                     <input class="input100" type="password" formControlName="password"
                         placeholder="Ingrese su contraseña">
-                    <span class="focus-input100"></span>
+                  
                 </div>
                 <br>
-                <div class="text-right p-t-8 p-b-31"></div>
+
 
                 <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
+                    <div>
                         <div class="login100-form-bgbtn"></div>
                         <button mat-raised-button color="primary" type="submit" [disabled]="miFormulario.invalid">
                             Registro
@@ -40,17 +40,13 @@
                     </div>
                 </div>
                 <br>
+                <br><br>
 
+                <div class="center-content">
+                    <span> ¿Ya tienes cuenta? </span>
+                    <span class="spacer2"></span>
+                    <button mat-raised-button routerLink="/auth/login" color="primary">Ingresar</button>
 
-                <div class="flex-col-c p-t-60">
-                    <span class="txt1 p-b-17">
-                        ¿Ya tienes cuenta?
-                    </span>
-
-
-                    <mat-card-actions>
-                        <button mat-raised-button routerLink="/auth/login" color="primary">Ingresar</button>
-                    </mat-card-actions>
                 </div>
             </form>
         </mat-card-content>

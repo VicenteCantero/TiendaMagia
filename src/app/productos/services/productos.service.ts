@@ -25,16 +25,16 @@ export class ProductosService {
     return this.http.get<Producto>(`${environment.apiUrl}${this.endPoint}${id}`)
   }
 
-  getSugerencias (termino: string): Observable<Producto[]>{
+  // getSugerencias (termino: string): Observable<Producto[]>{
 
-    return this.http.get<Producto[]>(`${environment.apiUrl}${this.endPoint}{"nombre": {"$regex": ${termino}}}`)
+  //   return this.http.get<Producto[]>(`${environment.apiUrl}${this.endPoint}{"nombre": {"$regex": ${termino}}}`)
 
-  }
+  // }
 
-  getProductosPorNombre (nombre: string): Observable<Producto>{
+  // getProductosPorNombre (nombre: string): Observable<Producto>{
 
-    return this.http.get<Producto>(`${environment.apiUrl}${this.endPoint}${nombre}`)
-  }
+  //   return this.http.get<Producto>(`${environment.apiUrl}${this.endPoint}${nombre}`)
+  // }
 
   agregarProducto (producto: Producto): Observable<Producto>{
 

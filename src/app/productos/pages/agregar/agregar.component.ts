@@ -80,6 +80,7 @@ export class AgregarComponent implements OnInit {
     if (this.producto.nombre.trim().length === 0) {
       return;
     }
+    //introducir mensaje de nombre obligatorio
 
     if (this.imagenAMostrar) {
       this.producto.alt_img = this.imagenAMostrar;
@@ -139,6 +140,6 @@ export class AgregarComponent implements OnInit {
     this.imagenHelperService.readFileContent(this.archivosASubir)
       .then(resp => this.imagenAMostrar = resp)
 
-    this.selected_image = this.archivosASubir ? fileInput.target.files[0].name : '';
+    this.selected_image = this.archivosASubir ? this.archivosASubir.name : '';
   }
 }

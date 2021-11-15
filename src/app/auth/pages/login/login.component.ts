@@ -32,7 +32,7 @@ export class LoginComponent {
         if (token) {
           this.router.navigate(['./productos']);
         } else {
-          Swal.fire('Error',token, 'error');
+          Swal.fire('Usuario o password incorrecto',token, 'error');
         }
       });
 

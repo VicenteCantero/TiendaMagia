@@ -13,7 +13,7 @@
         fxLayoutGap = "30px">
 
         <div fxFlex=50>
-            <h1>{{producto.nombre | uppercase}}<small>- Magia de {{producto.tipo}}</small></h1>
+            <h1>{{producto.nombre | uppercase}}<small> - {{producto.tipo}}</small></h1>
             <mat-divider></mat-divider>
             <br>
             <img [src]= "producto | imagen">

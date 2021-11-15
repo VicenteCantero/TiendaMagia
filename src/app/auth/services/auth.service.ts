@@ -49,6 +49,8 @@ export class AuthService {
   logOut() {
     this._auth = undefined;
     localStorage.removeItem('token');
+    localStorage.removeItem('nombre');
+    localStorage.removeItem('id');
   }
 
   registro(nombre: string, email: string, password: string) {

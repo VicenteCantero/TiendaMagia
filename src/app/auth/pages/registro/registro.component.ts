@@ -7,14 +7,7 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styles: [`
-    center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  } `]
+  styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
 

@@ -3,7 +3,51 @@
    box-shadow: 0 0 1rem rgba(0,0,0,0.3);
    min-height: 10rem;
    margin: auto;
-   max-width: 34%;
+   max-width: 22%;
    padding: .5rem;
  } 
- 
+
+ html,body{
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.center-content{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+ }
+
+
+.input100 {
+  font-family: Poppins-Medium;
+  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  color: #fcf9f9;
+  line-height: 1.2;
+
+  display: flex;
+  width: 90%;
+  height: 55px;
+  background: transparent;
+  padding: 0 7px 0 43px;
+  border: 0;
+}
+
+
+.container-login100-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
