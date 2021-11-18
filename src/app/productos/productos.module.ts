@@ -17,6 +17,7 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
 import { TiposComponent } from './pages/tipos/tipos.component';
 import { CrearTipoComponent } from './components/crear-tipo/crear-tipo.component';
 import { ActualizarTipoComponent } from './components/actualizar-tipo/actualizar-tipo.component';
+import { EliminarTipoComponent } from './components/eliminar-tipo/eliminar-tipo.component';
 
 
 
@@ -36,7 +37,8 @@ import { ActualizarTipoComponent } from './components/actualizar-tipo/actualizar
     ConfirmarComponent,
     TiposComponent,
     CrearTipoComponent,
-    ActualizarTipoComponent
+    ActualizarTipoComponent,
+    EliminarTipoComponent
   
   ],
   imports: [

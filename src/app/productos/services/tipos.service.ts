@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Tipos } from '../interface/tipos.interfaces';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +26,12 @@ export class TiposService {
     return this.http.get<Tipos>(`${environment.apiUrl}${this.endPoint}${id}`)
   }
 
-  existeNombre (nombre: string): Observable<Tipos> {
-    return this.http.get<Tipos>(`${environment.apiUrl}/${this.endPoint}/nombre/${nombre}`)
+  existeNombre (nombre: string): Observable<boolean> {
+    return this.http.get<boolean>(`${environment.apiUrl}/${this.endPoint}/nombre/${nombre}`)
+  }
+
+  estaEnUso (id : string) : Observable <boolean>{
+    return this.http.get<boolean>(`${environment.apiUrl}/${this.endPoint}/id/${id}`)
   }
 
   actualizarTipo (tipo: Tipos): Observable<Tipos>{

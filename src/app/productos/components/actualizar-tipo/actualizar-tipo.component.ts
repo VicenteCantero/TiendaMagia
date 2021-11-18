@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Tipos } from '../../interface/tipos.interfaces';
 import { TiposService } from '../../services/tipos.service';
 
+
 @Component({
   selector: 'app-actualizar-tipo',
   templateUrl: './actualizar-tipo.component.html',
@@ -13,10 +14,12 @@ import { TiposService } from '../../services/tipos.service';
 })
 export class ActualizarTipoComponent implements OnInit {
 
+ 
+
   tipo: Tipos = {
     id: '',
-    nombre: '',
-  }
+    nombre: ''
+  };
 
 
   constructor(private dialogRef: MatDialogRef<ActualizarTipoComponent>,
@@ -26,22 +29,26 @@ export class ActualizarTipoComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Tipos) { }
 
   ngOnInit(): void {
+
+  this.tipo = {
+    id: this.data.id,
+    nombre: this.data.nombre
+  };
+
   }
-
-
-  actualizar(id: string) {
-    if (this.data.nombre.trim().length === 0) {
+  actualizar() {
+    if (this.tipo.nombre.trim().length === 0) {
       this.mostrarSnakBar('Escriba un nombre');
       return;
     }
-    this.tiposService.existeNombre(this.data.nombre)
+    this.tiposService.existeNombre(this.tipo.nombre)
       .subscribe(resp => {
         if (resp) {
           this.mostrarSnakBar('Nombre repetido')
         }
         else {
-          this.tiposService.actualizarTipo(this.data)
-            .subscribe(tipo => {
+          this.tiposService.actualizarTipo(this.tipo)
+            .subscribe(() => {
               this.mostrarSnakBar('Tipo actualizado');
               this.dialogRef.close(true);
             })
@@ -56,7 +63,7 @@ export class ActualizarTipoComponent implements OnInit {
   }
 
   mostrarSnakBar(mensaje: string) {
-    this.snackBar.open(mensaje, this.tipo.nombre, {
+    this.snackBar.open(mensaje, this.data.nombre, {
       duration: 2500
     })
   }

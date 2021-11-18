@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tipos } from '../../interface/tipos.interfaces';
 import { TiposService } from '../../services/tipos.service';
 import { CrearTipoComponent } from '../../components/crear-tipo/crear-tipo.component';
 import { observable } from 'rxjs';
 import { ActualizarTipoComponent } from '../../components/actualizar-tipo/actualizar-tipo.component';
+import { EliminarTipoComponent } from '../../components/eliminar-tipo/eliminar-tipo.component';
 
 
 @Component({
@@ -68,11 +68,25 @@ export class TiposComponent implements OnInit {
 
   }
 
-  borrarTipo(id :string) {
-    this.tiposService.borrarTipo(id)
-      .subscribe(() => {
-        this.dameTipos();
-      });
+  borrarTipo(tipo: any) {
+    // this.tiposService.borrarTipo(id)
+    //   .subscribe(() => {
+    //     this.dameTipos();
+    //   });
+
+    const dialog = this.dialog.open(EliminarTipoComponent, {
+      width: '500px',
+      data: tipo
+    });
+
+    dialog.afterClosed().subscribe(
+      (result) => {
+
+        if (result) {
+          this.dameTipos();
+        }
+
+      })
   }
 
 
