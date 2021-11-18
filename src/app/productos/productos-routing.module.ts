@@ -5,6 +5,7 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { ProductosComponent } from './pages/productos/productos.component';
+import { TiposComponent } from './pages/tipos/tipos.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'buscar',
         component: BuscarComponent
+      },
+      {
+        path: 'tipos',
+        component: TiposComponent
       },
       {
         path: ':id',

@@ -14,6 +14,10 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { ProductoTarjetaComponent } from './components/producto-tarjeta/producto-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
 import { ConfirmarComponent } from './components/confirmar/confirmar.component';
+import { TiposComponent } from './pages/tipos/tipos.component';
+import { CrearTipoComponent } from './components/crear-tipo/crear-tipo.component';
+import { ActualizarTipoComponent } from './components/actualizar-tipo/actualizar-tipo.component';
+
 
 
 
@@ -29,7 +33,11 @@ import { ConfirmarComponent } from './components/confirmar/confirmar.component';
     ListadoComponent,
     ProductoTarjetaComponent,
     ImagenPipe,
-    ConfirmarComponent
+    ConfirmarComponent,
+    TiposComponent,
+    CrearTipoComponent,
+    ActualizarTipoComponent
+  
   ],
   imports: [
     CommonModule,

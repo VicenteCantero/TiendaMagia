@@ -1,0 +1,62 @@
+
+<mat-card-actions fxLayout>
+
+<h1>Gestión de tipos</h1>
+
+    <span class="spacer"></span>
+
+    <button mat-raised-button 
+            color="primary"
+            (click)="crear()">
+            <mat-icon>add</mat-icon>
+       Añadir 
+     </button>
+</mat-card-actions>
+
+<br>
+<mat-divider></mat-divider>
+<br>
+
+
+<div>
+    <table mat-table [dataSource]="arrayTipos" width=100%>
+
+        <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef><h2>Id</h2>  </th>
+            <td mat-cell *matCellDef="let tipo"> {{tipo.id}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef><h2>Nombre</h2>  </th>
+            <td mat-cell *matCellDef="let tipo"> {{tipo.nombre}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Actualizar">
+            <th mat-header-cell *matHeaderCellDef><h2>Actualizar</h2>  </th>
+            <td mat-cell *matCellDef="let tipo">
+                <button mat-raised-button color="primary" (click)="actualizar(tipo)">
+                    Actualizar
+                </button>
+            </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="Borrar">
+            <th mat-header-cell *matHeaderCellDef><h2>  Borrar </h2> </th>
+            <td mat-cell *matCellDef="let tipo" >
+                <button mat-raised-button color="warn" (click)="borrarTipo(tipo.id)">
+                    Borrar
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+<br>
+<mat-divider></mat-divider>
+<br>

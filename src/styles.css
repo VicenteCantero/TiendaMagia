@@ -17,3 +17,10 @@ body { margin: 10; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .spacer2 {
     flex: 0.15 0 auto;
 }
+
+.right {
+    position: absolute;
+    right: 0px;
+    width: 300px;
+    padding: 10px;
+  }

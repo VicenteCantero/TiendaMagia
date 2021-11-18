@@ -11,6 +11,7 @@ import { MaterialAngularModule } from './material-angular/material-angular.modul
 
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 
+
 export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
@@ -18,7 +19,8 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+   
   ],
   imports: [
     BrowserModule,

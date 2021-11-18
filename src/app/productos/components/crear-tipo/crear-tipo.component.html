@@ -1,0 +1,18 @@
+<h1>Introduce el nombre del tipo a crear:</h1>
+<div >
+
+  <br>
+  <mat-form-field fxFlex="100">
+    <mat-label>Nombre</mat-label>
+    <input matInput type="text" [(ngModel)]="tipo.nombre" required>
+  </mat-form-field>
+</div>
+
+<br>
+
+
+<div fxLayout>
+  <button mat-raised-button (click)=crear() color="primary">Crear</button>
+  <span class="spacer"> </span>
+  <button mat-raised-button (click)=cerrar() >Cerrar</button>
+</div>

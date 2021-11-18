@@ -22,8 +22,8 @@
         <mat-form-field fxFlex="100">
             <mat-label>Tipo</mat-label>
             <mat-select [(ngModel)]="producto.tipo" required>
-                <mat-option *ngFor="let tipo of tipos" [value]="tipo">
-                    {{tipo}}
+                <mat-option *ngFor="let tipo of arrayTipos" [value]="tipo.id">
+                    {{tipo.nombre}}
                 </mat-option>
 
             </mat-select>

@@ -8,6 +8,8 @@ import { Producto } from '../../interface/producto.interfaces';
 import { ProductosService } from '../../services/productos.service';
 import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 import { ImagenHelperService } from '../../services/imagen-helper.service';
+import { TiposService } from '../../services/tipos.service';
+import { Tipos } from '../../interface/tipos.interfaces';
 
 @Component({
   selector: 'app-agregar',
@@ -23,19 +25,11 @@ import { ImagenHelperService } from '../../services/imagen-helper.service';
 
 export class AgregarComponent implements OnInit {
 
-  tipos: string[] = [
-    "Magia de Cerca", "Magia de Salón", "Magia de Escena", "Libros", "Grandes ilusiones", "Dvds", "Complementos"
-  ]
-
-  //   tipo: Tipo= [
-  //     // cerca= "cerca",
-  //     // salon= "salón",
-  //     // escena= "escena",
-  //     // grandes= "grandes ilusiones",
-  //     // libro= "libro",
-  //     // dvd= "dvd",
-  //     // complementos= "complementos"
+  // tipos: string[] = [
+  //   "Magia de Cerca", "Magia de Salón", "Magia de Escena", "Libros", "Grandes ilusiones", "Dvds", "Complementos"
   // ]
+
+  arrayTipos: Tipos[] = [];
 
   producto: Producto = {
     id: '',
@@ -53,6 +47,7 @@ export class AgregarComponent implements OnInit {
   imagenAMostrar: string = '';
 
   constructor(private productosService: ProductosService,
+    private tiposService: TiposService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private snackBar: MatSnackBar,
@@ -60,6 +55,8 @@ export class AgregarComponent implements OnInit {
     private imagenHelperService: ImagenHelperService) { }
 
   ngOnInit(): void {
+
+    this.dameTipos();
 
     if (!this.router.url.includes('editar')) {
       return;
@@ -141,5 +138,11 @@ export class AgregarComponent implements OnInit {
       .then(resp => this.imagenAMostrar = resp)
 
     this.selected_image = this.archivosASubir ? this.archivosASubir.name : '';
+  }
+
+  dameTipos() {
+    this.tiposService.getTipos().subscribe(data => {
+      this.arrayTipos = data;
+    });
   }
 }

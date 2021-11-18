@@ -5,8 +5,7 @@
         <mat-toolbar color="primary">
             <span>Menú</span>
             <span class="spacer"></span>
-            <button mat-icon-button
-                    (click) ="sidenav.toggle()" >
+            <button mat-icon-button (click)="sidenav.toggle()">
 
                 <mat-icon>
                     menu
@@ -15,32 +14,33 @@
         </mat-toolbar>
 
         <mat-nav-list>
-            <a routerLink="./listado"
-                mat-list-item
-                (click) ="sidenav.toggle()" >
+            <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>label</mat-icon>
-                    <span>Listado de productos</span>
+                <span>Listado de productos</span>
             </a>
 
-            <a routerLink="./agregar"
-                 mat-list-item
-                (click) ="sidenav.toggle()" >
-                 <mat-icon mat-list-icon>add</mat-icon>
-                    <span>Agregar producto</span>
-            </a>    
+            <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Agregar producto</span>
+            </a>
 
-            <a routerLink="./buscar"
-                mat-list-item
-                (click) ="sidenav.toggle()" >
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
                 <mat-icon mat-list-icon>search</mat-icon>
-                    <span>Buscar producto</span>
-             </a>  
+                <span>Buscar producto</span>
+            </a>
+
+            <br>
+            <mat-divider></mat-divider>
+            <br>
+            <a routerLink="./tipos" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>settings_applications</mat-icon>
+                <span>Gestión tipos</span>
+            </a>
         </mat-nav-list>
     </mat-sidenav>
 
     <mat-toolbar>
-        <button mat-icon-button
-                (click) ="sidenav.toggle()" >
+        <button mat-icon-button (click)="sidenav.toggle()">
             <mat-icon>
                 menu
             </mat-icon>
@@ -49,20 +49,17 @@
         <span class="spacer"></span>
 
         <span>Bienvenido {{auth.nombre}}</span>
-        <button mat-icon-button
-            (click)="logOut()">                
+        <button mat-icon-button (click)="logOut()">
             <mat-icon>
                 logout
             </mat-icon>
         </button>
     </mat-toolbar>
 
-<div class="container">
-    <router-outlet></router-outlet>
-</div>
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
 
 
 
 </mat-sidenav-container>
-
-
