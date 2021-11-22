@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
-import { LoginComponent } from './auth/pages/login/login.component';
+
 
 
 const routes: Routes = [
   // {
   //   path: '',
-  //   pathMatch: 'full',
   //   redirectTo:'auth',
   // },
   {
@@ -29,7 +28,7 @@ const routes: Routes = [
   {
     path: '**',
     //component: ErrorPageComponent,
-    redirectTo: '404',
+    redirectTo: 'auth',
   }
 
 ]
